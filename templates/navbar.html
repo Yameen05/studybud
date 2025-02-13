@@ -1,0 +1,13 @@
+<!-- navbar.html -->
+
+    <!-- Logo that links to the homepage -->
+    <a href="{% url 'home' %}">
+        <h1>LOGO</h1>
+    </a>
+
+    <!-- Search bar to search for rooms or topics -->
+    <form method="GET" action="{% url 'home' %}">
+        <input type="text" name="q" placeholder="Search..." />
+    </form>
+    <a href="{% url 'login' %}">Login</a>
+<hr>
