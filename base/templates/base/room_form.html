@@ -26,9 +26,11 @@
               <label for="room_topic">Select a Topic</label>
               <select name="topic" id="room_topic" required>
                 {% for topic in topics %}
-                  <option value="{{ topic.name }}" {% if room.topic.name == topic.name %} selected {% endif %}>{{ topic.name }}</option>
+                    <option value="{{ topic.id }}" {% if room.topic.id == topic.id %} selected {% endif %}>
+                        {{ topic.name }}
+                    </option>
                 {% endfor %}
-              </select>
+            </select>
             </div>
 
             <div class="form__group">

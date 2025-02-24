@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Cool Rooms</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+  
+</head>
+<body>
+    
+    
+    <h1>Cool rooms</h1>
+    
+    
+    <div  id="rooms-container" ></div>
+    
+</body>
+
+<script>
+    let getRooms = async () => {
+        let response = await fetch('https://api.coolors.co/v1/rooms');
+        let data = await response.json();
+        return data;
+    }
+</script>
+
+
+</html>
