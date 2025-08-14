@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    email = models.EmailField(unique=True)  # Use email as the username
+    email = models.EmailField(unique=True, null=True, blank=True)  # Use email as the username
     bio = models.TextField(null=True, blank=True)  # Add a bio field
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)  # Add an avatar field
 
@@ -13,7 +13,7 @@ class User(AbstractUser):
     REQUIRED_FIELDS = []  # Remove username from required fields
 
     def __str__(self):
-        return self.email
+        return self.email or self.username
 
 
 class Topic(models.Model):
