@@ -66,7 +66,11 @@
                 <p>Hosted By</p>
                 <a href="{% url 'user-profile' room.host.id %}" class="room__author">
                   <div class="avatar avatar--small">
-                    <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+                    {% if room.host.avatar %}
+                      <img src="{{room.host.avatar.url}}" />
+                    {% else %}
+                      <img src="https://via.placeholder.com/40x40?text={{room.host.username|first|upper}}" />
+                    {% endif %}
                   </div>
                   <span>@{{room.host.username}}</span>
                 </a>
@@ -82,7 +86,11 @@
                     <div class="thread__author">
                       <a href="{% url 'user-profile' message.user.id %}" class="thread__authorInfo">
                         <div class="avatar avatar--small">
-                          <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+                          {% if message.user.avatar %}
+                            <img src="{{message.user.avatar.url}}" />
+                          {% else %}
+                            <img src="https://via.placeholder.com/40x40?text={{message.user.username|first|upper}}" />
+                          {% endif %}
                         </div>
                         <span>@{{message.user.username}}</span>
                       </a>
@@ -125,7 +133,11 @@
             {% for user in participants %}
             <a href="{% url 'user-profile' user.id %}" class="participant">
               <div class="avatar avatar--medium">
-                <img src="https://randomuser.me/api/portraits/men/37.jpg" />
+                {% if user.avatar %}
+                  <img src="{{user.avatar.url}}" />
+                {% else %}
+                  <img src="https://via.placeholder.com/60x60?text={{user.username|first|upper}}" />
+                {% endif %}
               </div>
               <p>
                 {{user.username}}
